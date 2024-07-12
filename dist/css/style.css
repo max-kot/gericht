@@ -6455,7 +6455,7 @@ body.open-menu {
   font-size: 18rem;
 }
 
-.gallery {
+.gallery__overflow-container {
   --gap: 64rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6467,18 +6467,24 @@ body.open-menu {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.gallery > *:first-child {
+.gallery__overflow-container > *:first-child {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 clamp( 280rem , 130rem  +  19.53125vw , 505rem );
           flex: 0 0 clamp( 280rem , 130rem  +  19.53125vw , 505rem );
 }
 
-.gallery > *:last-child {
+.gallery__overflow-container > *:last-child {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 calc(100% - clamp( 280rem , 130rem  +  19.53125vw , 505rem ) - var(--gap));
           flex: 0 1 calc(100% - clamp( 280rem , 130rem  +  19.53125vw , 505rem ) - var(--gap));
+}
+
+.gallery__slider {
+  z-index: 2;
 }
 
 .slider-gallery__pagination {
@@ -6555,6 +6561,125 @@ body.open-menu {
   left: 0;
   border: 2px solid rgba(220, 202, 135, 0.2);
   z-index: 2;
+}
+
+.subscription {
+  padding-top: clamp( 80rem , 72rem  +  2.5vw , 120rem );
+}
+
+.subscription:last-child {
+  padding-bottom: clamp( 60rem , 48rem  +  3.75vw , 120rem );
+}
+
+.subscription:not(:last-child) {
+  margin-bottom: clamp( -60rem , -34rem  +  -8.125vw , -190rem );
+}
+
+.subscription:not(:last-child) + * {
+  padding-top: clamp( 60rem , 34rem  +  8.125vw , 190rem );
+}
+
+.subscription__container {
+  background: var(--dark);
+  border: 1px solid var(--accent-op);
+  padding: 64rem 32rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.subscription__heading:not(:last-child) {
+  margin-bottom: 24rem;
+}
+
+.subscription__description {
+  color: var(--light-gray);
+}
+
+.subscription__description > *:first-child {
+  padding-top: unset;
+  margin-top: unset;
+}
+
+.subscription__description > *:last-child {
+  padding-bottom: unset;
+  margin-bottom: unset;
+}
+
+.subscription__description:not(:last-child) {
+  margin-bottom: clamp( 32rem , 25.6rem  +  2vw , 64rem );
+}
+
+.subscription__form {
+  width: 80%;
+}
+
+.subscription .form__subscription {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: clamp( 16rem , 12.8rem  +  1vw , 32rem );
+}
+
+.subscription .form__field {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.subscription .form__field::after {
+  display: none;
+}
+
+.subscription .form__btn {
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+}
+
+.subscription .form ._validate-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.subscription .form ._validate-box ._validate__label {
+  text-align: left;
+}
+
+.subscription .form ._validate-box._error .form__input {
+  border-color: red;
+}
+
+.subscription .form ._validate-box._error ._validate__label {
+  color: red;
+}
+
+.subscription .form ._validate-box._success .form__input {
+  border-color: green;
+}
+
+.subscription .form ._validate-box._success ._validate__label {
+  color: green;
 }
 
 @media (min-width: 640px) {
@@ -6842,6 +6967,12 @@ body.open-menu {
   }
 }
 
+@media (max-width: 48.06125em) {
+  .subscription__form {
+    width: 100%;
+  }
+}
+
 @media (max-width: 47.99875em) {
   .content {
     -webkit-box-flex: unset;
@@ -7002,7 +7133,7 @@ body.open-menu {
             align-items: center;
   }
 
-  .gallery {
+  .gallery__overflow-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -7010,14 +7141,14 @@ body.open-menu {
     padding-right: var(--container-padding);
   }
 
-  .gallery > *:first-child {
+  .gallery__overflow-container > *:first-child {
     -webkit-box-flex: unset;
         -ms-flex: unset;
             flex: unset;
     width: 100%;
   }
 
-  .gallery > *:last-child {
+  .gallery__overflow-container > *:last-child {
     -webkit-box-flex: unset;
         -ms-flex: unset;
             flex: unset;
@@ -7072,6 +7203,10 @@ body.open-menu {
 
   .testimonial__image {
     width: 190rem;
+  }
+
+  .subscription__container {
+    padding: 30rem 15rem;
   }
 }
 
